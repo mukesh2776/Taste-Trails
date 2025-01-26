@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Order Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
+
+        header h1 {
+            color: #ff6b6b;
+            font-size: 24px;
+        }
+
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #444;
+            font-weight: bold;
+            transition: color 0.3s;
+            margin-right: 30px;
+        }
+
+        header nav a:hover {
+            color: #ff6b6b;
+        }
+
+        .menu {
+            margin-top: 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .menu-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .menu-item h3 {
+            margin: 10px;
+            font-size: 20px;
+            color: #ff6b6b;
+        }
+
+        .menu-item p {
+            margin: 10px;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .menu-item button {
+            margin: 10px;
+            padding: 10px 20px;
+            background: #ff6b6b;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .menu-item button:hover {
+            background: #e74c3c;
+        }
+
+        .order-form {
+            display: none;
+            position: fixed;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .order-form h2 {
+            text-align: center;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        .order-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        
+        .order-form input, .order-form textarea, .place-order {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .place-order{
+            background: #ff6b6b;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .place-order:hover {
+            background: #e74c3c;
+        }
+        .back{
+            font-size: 14px;
+            border: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color:transparent;
+            border-radius: 100px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .back:hover{
+            cursor: pointer;
+            border-radius: 100px;
+            background-color:rgb(238, 235, 235);
+ 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Taste Trails</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="menu">
+        <div class="menu-item">
+            <img src="images/bbqpizza.jpg" alt="Pizza">
+            <h3>BBQ Pizza</h3>
+            <p>A delicious BBQ pizza with fresh toppings.</p>
+            <button onclick="document.querySelector('.order-form').style.display='block';">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="images/Detroitpizza.jpg" alt="Burger">
+            <h3>Detroit Pizza</h3>
+            <p>A mouth-watering Detroit pizza with crispy fries.</p>
+            <button onclick="document.querySelector('.order-form').style.display='block';">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="images/margheritapizza.jpg" alt="Pasta">
+            <h3>Margherita Pizza</h3>
+            <p>A margherita pizza cooked to perfection.</p>
+            <button onclick="document.querySelector('.order-form').style.display='block';">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="images/mushroompizza.jpg" alt="Salad">
+            <h3>Mushroom Pizza</h3>
+            <p>A fresh and healthy mushroom pizza with organic ingredients.</p>
+            <button onclick="document.querySelector('.order-form').style.display='block';">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="images/neapolitanpizza.jpg" alt="Sushi">
+            <h3>Neapolitan Pizza</h3>
+            <p>Delicious neapolitan pizza with authentic flavors.</p>
+            <button onclick="document.querySelector('.order-form').style.display='block';">Order Now</button>
+        </div>
+        <div class="menu-item">
+            <img src="images/trufflepizza.jpg" alt="Dessert">
+            <h3>Truffle Pizza</h3>
+            <p>Indulge in a rich truffle pizza.</p>
+            <button onclick="document.querySelector('.order-form').style.display='block';">Order Now</button>
+        </div>
+    </div>
+
+    <div class="order-form">
+        <h2>Order Details</h2><button class="back" onclick="document.querySelector('.order-form').style.display='none';">&#10060;</button>
+        <form action="payment.html" >
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" required></textarea>
+
+            <label for="payment">Payment Details:</label>
+            <input type="text" id="payment" name="payment" placeholder="Card Number" required>
+
+            <button type="submit" class="place-order">Place Order</button>
+        </form>
+    </div>
+</body>
+</html>

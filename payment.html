@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+</head>
+<body>
+    <style>
+        .body{
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        .container{
+            width: 600px;
+            height: 300px;
+            background-color:rgb(191, 218, 191);
+            margin-left: 30%;
+            margin-top: 10%;
+            color: aliceblue;
+            display: grid;
+            grid-template-rows: 1fr ;
+            padding-bottom: 50px;
+            border-radius: 20px;
+            position: relative;
+            
+        }
+        .container-tick{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            margin-left: 250px;
+            margin-top: 50px;
+            border-radius: 50px;
+            position: relative;
+
+        }
+        .tick{
+            font-size: 50px;
+            position: absolute;
+            top: -40px;
+            
+        }
+        .payment{
+            padding-left: 31%;
+            font-size: 28px;
+            font-weight: bold;
+            color: rgb(31, 129, 31);
+            line-height: 5px;
+        }
+        .order{
+            padding-left: 29%;
+            font-size: 23px;
+            font-weight: bold;
+            color: rgb(31, 129, 31);
+            line-height: 0px;
+            
+        }
+        .back-to-home{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            color: green;
+        }
+        .back-to-home:hover{
+            color: aliceblue;
+        }
+
+        
+    </style>
+    <div class="container">
+        <div class="container-tick">
+            <p class="tick"> &#x2713;</p>
+        </div> 
+        <p class="payment">Payment Successfull</p>
+        <p class="order">Your Order Has Been Placed</p>
+        <a href="login.html" class="back-to-home">Back to Home</a>
+    </div>
+
+    
+
+</body>
+</html>
